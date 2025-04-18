@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&display=swap');
+
+.relative .absolute {
+  backdrop-filter: blur(10px);
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}
+
+body {
+ font-family: 'Inter', sans-serif;
+}
