@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import Footer from "../components/Footer";
 import front from "../assets/images/frontend.jpg";
 import back from "../assets/images/backend.jpg";
+import {logo1,logo2,logo3,logo4,post1,post2,post3,post4,post5,post6,post7,post8,post9} from "../assets/images/posts/index.ts";
 
 const projects = [
     {id: 1, name: 'Sales Management System', description: 'web application', link: 'https://github.com/krvdias/sales_management_system', card_id: 1, image: front},
@@ -12,10 +13,19 @@ const projects = [
     {id: 5, name: 'Portfolio', description: '', link: 'https://www.figma.com/design/ncbpZoEpmk1oS8P1SpG9xj/Portfolio?node-id=0-1&t=NC4BsMHdrWhVuxtP-1', card_id: 2, image:back},
     {id: 6, name: 'Memora App', description: '', link: 'https://www.figma.com/design/u2pbWssXfs50rEA0VyWt2g/HCI-Project?node-id=0-1&t=afGPvXYPPIvlj3R3-1', card_id: 2, image: back},
     {id: 7, name: 'Library Management System', description: '', link: 'https://www.figma.com/design/yXKd0MBxdyIRiD9SsaWbCo/Library-Management-System?t=afGPvXYPPIvlj3R3-1', card_id: 2, image: back},
-    {id: 8, name: '', description: '', link: '', card_id: 3},
-    {id: 9, name: '', description: '', link: '', card_id: 3},
-    {id: 10, name: '', description: '', link: '', card_id: 3},
-    {id: 11, name: '', description: '', link: '', card_id: 3},
+    {id: 8, name: '', description: '', link: '', card_id: 3, image: post1},
+    {id: 9, name: '', description: '', link: '', card_id: 3, image: post2},
+    {id: 10, name: '', description: '', link: '', card_id: 3, image: post3},
+    {id: 11, name: '', description: '', link: '', card_id: 3, image: post4},
+    {id: 12, name: '', description: '', link: '', card_id: 3, image: post5},
+    {id: 13, name: '', description: '', link: '', card_id: 3, image: post6},
+    {id: 14, name: '', description: '', link: '', card_id: 3, image: post7},
+    {id: 15, name: '', description: '', link: '', card_id: 3, image: post8},
+    {id: 16, name: '', description: '', link: '', card_id: 3, image: post9},
+    {id: 17, name: '', description: '', link: '', card_id: 3, image: logo1},
+    {id: 18, name: '', description: '', link: '', card_id: 3, image: logo2},
+    {id: 19, name: '', description: '', link: '', card_id: 3, image: logo3},
+    {id: 19, name: '', description: '', link: '', card_id: 3, image: logo4}
 ];
 
 interface Card {
@@ -67,36 +77,48 @@ const ProjectView = () => {
             </div>
 
             {/* Projects Grid */}
-            <div className="container mx-auto px-10 md:px-15 py-20 flex-grow">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="container mx-auto px-10 md:px-15 sm:px-6 py-10 sm:py-16 md:py-20 flex-grow">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project) => (
-                        <div
-                            key={project.id}
-                            className="relative w-full h-[250px] rounded-4xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 group"
-                            style={{ 
-                                backgroundImage: `url(${project?.image})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                            }}
-                        >
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-black opacity-70 flex flex-col items-center justify-center p-6 text-center transition-opacity group-hover:bg-opacity-70">
-                                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <h3 className="text-2xl font-bold text-white mb-2">{project?.name}</h3>
-                                    <p className="text-gray-300 mb-4">{project?.description}</p>
-                                    {project.link && (
-                                        <a 
-                                            href={project?.link} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
-                                            className="inline-block px-4 py-2 bg-white text-black rounded-md hover:bg-gray-200 transition"
-                                        >
-                                            View Project
-                                        </a>
-                                    )}
-                                </div>
+                        cards.id === 3 ? (
+                            <div
+                              key={project.id}
+                              className="w-full h-full rounded-xl overflow-hidden shadow-md"
+                            >
+                              <img
+                                src={project.image}
+                                alt="Project"
+                                className="w-full h-full object-cover"
+                              />
                             </div>
-                        </div>
+                          ) : (
+                            <div
+                                key={project.id}
+                                className="relative w-full h-[250px] rounded-4xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 group flex items-center justify-center"
+                                style={{ 
+                                    backgroundImage: `url(${project?.image})`,
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }}
+                            >
+                                {/* Overlay */}
+                                <div className="absolute inset-0 bg-black opacity-70 "></div>
+                                    <div className="relative transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex flex-col items-center">
+                                        <h3 className="text-2xl font-bold text-white mb-2">{project?.name}</h3>
+                                        <p className="text-gray-300 mb-4">{project?.description}</p>
+                                        {project.link && (
+                                            <a 
+                                                href={project?.link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="inline-block px-4 py-2 bg-white text-black rounded-md hover:bg-gray-200 transition"
+                                            >
+                                                View Project
+                                            </a>
+                                        )}
+                                    </div>
+                            </div>
+                          )
                     ))}
                 </div>
             </div>
@@ -104,7 +126,7 @@ const ProjectView = () => {
             {/* Footer */}
             <Footer />
         </div>
-    )
-}
+    );
+};
 
 export default ProjectView;

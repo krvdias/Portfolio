@@ -11,14 +11,14 @@ const Footer: React.FC = () => {
           <h1 className="text-5xl font-bold">Contact Me.</h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-between">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between">
           {/* Left Side Image - aligned to left corner with no padding */}
           <div className="w-full lg:w-1/2 flex justify-start items-start">
             <img src={Image2} alt="Image2" className="max-w-[500px] lg:max-w-[400px]" />
           </div>
 
           {/* Right Side Social Icons */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start space-x-6 lg:space-x-12 mt-6 lg:mt-0">
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start space-x-6 lg:space-x-12 mt-15 lg:mt-0 sm:mb-10 sm:mt-10">
             <a href="https://wa.me/94783764730" target="_blank" rel="noopener noreferrer">
               <img src={whatsapp} alt="WhatsApp" className="h-15 sm:h-20" />
             </a>
