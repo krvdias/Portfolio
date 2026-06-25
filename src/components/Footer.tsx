@@ -1,37 +1,44 @@
 import React from "react";
-import { github, facebook, linkedin, whatsapp } from "../assets/icons/index";
-import Image2 from "../assets/images/contact.png";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white shadow-lg relative z-[100]">
-      <div className="max-w-screen-3xl mx-auto text-center">
+    <footer className="bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800 py-10 px-4 md:px-10">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         
-        <div className="flex items-center justify-center mt-8">
-          <h1 className="text-5xl font-bold">Contact Me.</h1>
+        <div className="text-center md:text-left">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tighter mb-2">Portfolio.</h2>
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
+            © {new Date().getFullYear()} K R Vishan Dias. All rights reserved.
+          </p>
         </div>
 
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between">
-          {/* Left Side Image - aligned to left corner with no padding */}
-          <div className="w-full lg:w-1/2 flex justify-start items-start">
-            <img src={Image2} alt="Image2" className="max-w-[500px] lg:max-w-[400px]" />
-          </div>
-
-          {/* Right Side Social Icons */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start space-x-6 lg:space-x-12 mt-15 lg:mt-0 sm:mb-10 sm:mt-10">
-            <a href="https://wa.me/94783764730" target="_blank" rel="noopener noreferrer">
-              <img src={whatsapp} alt="WhatsApp" className="h-15 sm:h-20" />
-            </a>
-            <a href="https://github.com/krvdias" target="_blank" rel="noopener noreferrer">
-              <img src={github} alt="Github" className="h-15 sm:h-20" />
-            </a>
-            <a href="https://web.facebook.com/krv.dias" target="_blank" rel="noopener noreferrer">
-              <img src={facebook} alt="Facebook" className="h-15 sm:h-20" />
-            </a>
-            <a href="https://www.linkedin.com/in/vishan-dias-2b4b92213" target="_blank" rel="noopener noreferrer">
-              <img src={linkedin} alt="Linkedin" className="h-15 sm:h-20" />
-            </a>
-          </div>
+        <div className="flex gap-4">
+          <a
+            href="https://github.com/krvdias"
+            target="_blank"
+            rel="noreferrer"
+            className="p-2 rounded-full text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+            aria-label="GitHub"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+          <a
+            href="https://linkedin.com/in/vishan-dias-2b4b92213"
+            target="_blank"
+            rel="noreferrer"
+            className="p-2 rounded-full text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a
+            href="mailto:vishandias@example.com"
+            className="p-2 rounded-full text-gray-500 hover:text-red-500 dark:text-gray-400 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 transition-all"
+            aria-label="Email"
+          >
+            <Mail className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </footer>

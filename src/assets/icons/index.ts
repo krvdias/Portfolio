@@ -1,11 +1,7 @@
-import facebook from './facebook.png';
-import github from './github.png';
-import linkedin from './linkedin.png';
-import whatsapp from './whatsapp.png';
+const image_url = import.meta.env.VITE_CLOUDFLARE_IMAGE;
 
-export {
-    facebook,
-    github,
-    linkedin,
-    whatsapp
-}
+
+export const facebook = `${image_url}/icons/facebook.png`;
+export const github = `${image_url}/icons/github.png`;
+export const linkedin = `${image_url}/icons/linkedin.png`;
+export const whatsapp = `${image_url}/icons/whatsapp.png`;

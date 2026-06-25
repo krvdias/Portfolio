@@ -3,7 +3,6 @@ import PageLoading from "./components/PageLoading";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import ProjectView from './pages/ProjectView';
-import './App.css'
 
 function App() {
   useEffect(() => {

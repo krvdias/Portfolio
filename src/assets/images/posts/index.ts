@@ -1,29 +1,15 @@
-import logo1 from './logo1.jpg';
-import logo2 from './logo2.png';
-import logo3 from './logo3.jpg';
-import logo4 from './logo4.png';
-import post1 from './post1.png';
-import post2 from './post2.jpg';
-import post3 from './post3.png';
-import post4 from './post4.jpg';
-import post5 from './post5.png';
-import post6 from './post6.png';
-import post7 from './post7.jpg';
-import post8 from './post8.png';
-import post9 from './post9.png';
+const image_url = import.meta.env.VITE_CLOUDFLARE_IMAGE;
 
-export {
-    logo1,
-    logo2,
-    logo3,
-    logo4,
-    post1,
-    post2,
-    post3,
-    post4,
-    post5,
-    post6,
-    post7,
-    post8,
-    post9
-}
+export const logo1 = `${image_url}/images/posts/logo1.jpg`;
+export const logo2 = `${image_url}/images/posts/logo2.png`;
+export const logo3 = `${image_url}/images/posts/logo3.jpg`;
+export const logo4 = `${image_url}/images/posts/logo4.png`;
+export const post1 = `${image_url}/images/posts/post1.png`;
+export const post2 = `${image_url}/images/posts/post2.jpg`;
+export const post3 = `${image_url}/images/posts/post3.png`;
+export const post4 = `${image_url}/images/posts/post4.jpg`;
+export const post5 = `${image_url}/images/posts/post5.png`;
+export const post6 = `${image_url}/images/posts/post6.png`;
+export const post7 = `${image_url}/images/posts/post7.jpg`;
+export const post8 = `${image_url}/images/posts/post8.png`;
+export const post9 = `${image_url}/images/posts/post9.png`;

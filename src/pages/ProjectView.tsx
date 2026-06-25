@@ -1,18 +1,17 @@
 import { useLocation, useNavigate } from 'react-router-dom'; 
 import { X } from "lucide-react";
 import Footer from "../components/Footer";
-import front from "../assets/images/frontend.jpg";
-import back from "../assets/images/backend.jpg";
+import {backend, frontend } from "../assets/images/index";
 import {logo1,logo2,logo3,logo4,post1,post2,post3,post4,post5,post6,post7,post8,post9} from "../assets/images/posts/index.ts";
 
 const projects = [
-    {id: 1, name: 'Sales Management System', description: 'web application', link: 'https://github.com/krvdias/sales_management_system', card_id: 1, image: front},
-    {id: 2, name: 'Auto Mobile System', description: 'web application', link: 'https://github.com/krvdias/Auto-Wizard', card_id: 1, image: front},
-    {id: 3, name: 'Library Managememt System', description: 'web application', link: 'https://github.com/krvdias/Library-Management-System', card_id: 1, image: front},
-    {id: 4, name: 'Expence Tracker System', description: 'standalone app', link: 'https://github.com/krvdias/ExpenceTrackingSystem', card_id: 1, image: front},
-    {id: 5, name: 'Portfolio', description: '', link: 'https://www.figma.com/design/ncbpZoEpmk1oS8P1SpG9xj/Portfolio?node-id=0-1&t=NC4BsMHdrWhVuxtP-1', card_id: 2, image:back},
-    {id: 6, name: 'Memora App', description: '', link: 'https://www.figma.com/design/u2pbWssXfs50rEA0VyWt2g/HCI-Project?node-id=0-1&t=afGPvXYPPIvlj3R3-1', card_id: 2, image: back},
-    {id: 7, name: 'Library Management System', description: '', link: 'https://www.figma.com/design/yXKd0MBxdyIRiD9SsaWbCo/Library-Management-System?t=afGPvXYPPIvlj3R3-1', card_id: 2, image: back},
+    {id: 1, name: 'Sales Management System', description: 'web application', link: 'https://github.com/krvdias/sales_management_system', card_id: 1, image: frontend},
+    {id: 2, name: 'Auto Mobile System', description: 'web application', link: 'https://github.com/krvdias/Auto-Wizard', card_id: 1, image: frontend},
+    {id: 3, name: 'Library Managememt System', description: 'web application', link: 'https://github.com/krvdias/Library-Management-System', card_id: 1, image: frontend},
+    {id: 4, name: 'Expence Tracker System', description: 'standalone app', link: 'https://github.com/krvdias/ExpenceTrackingSystem', card_id: 1, image: frontend},
+    {id: 5, name: 'Portfolio', description: '', link: 'https://www.figma.com/design/ncbpZoEpmk1oS8P1SpG9xj/Portfolio?node-id=0-1&t=NC4BsMHdrWhVuxtP-1', card_id: 2, image:backend},
+    {id: 6, name: 'Memora App', description: '', link: 'https://www.figma.com/design/u2pbWssXfs50rEA0VyWt2g/HCI-Project?node-id=0-1&t=afGPvXYPPIvlj3R3-1', card_id: 2, image: backend},
+    {id: 7, name: 'Library Management System', description: '', link: 'https://www.figma.com/design/yXKd0MBxdyIRiD9SsaWbCo/Library-Management-System?t=afGPvXYPPIvlj3R3-1', card_id: 2, image: backend},
     {id: 8, name: '', description: '', link: '', card_id: 3, image: post1},
     {id: 9, name: '', description: '', link: '', card_id: 3, image: post2},
     {id: 10, name: '', description: '', link: '', card_id: 3, image: post3},

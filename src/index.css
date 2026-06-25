@@ -1,14 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@400;700&display=swap');
+@import "tailwindcss";
 
-.relative .absolute {
-  backdrop-filter: blur(10px);
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
 }
 
-.text-stroke-white {
-  -webkit-text-stroke: 2px white;
-  color: transparent;
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #ffffff;
 }
 
 body {
- font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 2px currentColor;
+  color: transparent;
 }
