@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Users, BookOpen } from 'lucide-react';
 import { my } from '../assets/images/index';
+import AdminPhotoUpload from './AdminPhotoUpload';
 
 interface GithubStats {
   public_repos: number;
@@ -11,6 +12,8 @@ interface GithubStats {
 
 const HeroSection: React.FC = () => {
   const [stats, setStats] = useState<GithubStats | null>(null);
+  // Starts with the R2 URL from the image index; admin can override with a cache-busted version
+  const [photoUrl, setPhotoUrl] = useState<string>(my);
 
   useEffect(() => {
     fetch('https://api.github.com/users/krvdias')
@@ -80,7 +83,7 @@ const HeroSection: React.FC = () => {
         )}
       </motion.div>
 
-      {/* Image */}
+      {/* Image + Admin Upload Overlay */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -88,11 +91,20 @@ const HeroSection: React.FC = () => {
         className="w-full lg:w-1/2 flex justify-center lg:justify-end z-10"
       >
         <div className="relative">
+          {/* Glow blob */}
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-3xl opacity-30 dark:opacity-40 animate-pulse"></div>
-          <div 
-            className="relative w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-white dark:border-gray-800 shadow-2xl bg-cover bg-center overflow-hidden z-10"
-            style={{ backgroundImage: `url(${my})` }}
-          ></div>
+
+          {/* AdminPhotoUpload wraps the image circle */}
+          <AdminPhotoUpload
+            currentImageUrl={photoUrl}
+            onUploadSuccess={(newUrl) => setPhotoUrl(newUrl)}
+          >
+            {/* The actual profile photo — inside the upload wrapper */}
+            <div
+              className="relative w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-white dark:border-gray-800 shadow-2xl bg-cover bg-center overflow-hidden z-10"
+              style={{ backgroundImage: `url(${photoUrl})` }}
+            />
+          </AdminPhotoUpload>
         </div>
       </motion.div>
       

@@ -1,12 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Database, Layout, Smartphone } from 'lucide-react';
+import { Code, Database, Layout, Server, Palette, GitBranch } from 'lucide-react';
 
 const skills = [
-  { icon: <Layout className="w-6 h-6" />, title: "Frontend", desc: "HTML5, CSS3, JavaScript, ReactJS" },
-  { icon: <Database className="w-6 h-6" />, title: "Backend", desc: "PHP, Python, Node.js, Laravel, WordPress" },
-  { icon: <Code className="w-6 h-6" />, title: "Languages", desc: "Java, C++, C#, Python, SQL" },
-  { icon: <Smartphone className="w-6 h-6" />, title: "Mobile", desc: "Android Development (Java, Kotlin), Flutter" }
+  { icon: <Layout className="w-6 h-6" />, title: "Frontend", desc: "HTML, CSS, JavaScript, React, Next.js, TypeScript" },
+  { icon: <Server className="w-6 h-6" />, title: "Backend", desc: "Node.js, PHP, Python, Laravel" },
+  { icon: <Database className="w-6 h-6" />, title: "Odoo ERP", desc: "Python, XML, PostgreSQL, OWL.js addon development" },
+  { icon: <Code className="w-6 h-6" />, title: "Languages", desc: "Python, Java, C++, C#, SQL" },
+  { icon: <Palette className="w-6 h-6" />, title: "UI / UX & Design", desc: "Figma, Photoshop, Illustrator, Lightroom, Canva" },
+  { icon: <GitBranch className="w-6 h-6" />, title: "Tools & Databases", desc: "Git, MS SQL, MySQL, PostgreSQL" },
 ];
 
 const AboutSection: React.FC = () => {
@@ -22,12 +24,13 @@ const AboutSection: React.FC = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">About Me.</h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Passionate software developer with hands-on experience in full-stack web development and application engineering.
-            Currently expanding my expertise in modern frameworks while building robust solutions across multiple platforms.
+            Associate Software Engineer at CygnusOne, specialising in Odoo ERP development using Python, XML, and PostgreSQL.
+            Previously worked as a full-stack developer with React, Next.js, TypeScript, and Node.js.
+            Final-year BSc IT undergraduate at BCI Campus, graduating August 2026.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={index}

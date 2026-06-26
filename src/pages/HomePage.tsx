@@ -3,8 +3,10 @@ import LandingHeader from "../components/LandingHeader";
 import Footer from "../components/Footer";
 import HeroSection from "../components/HeroSection";
 import AboutSection from "../components/AboutSection";
+import ExperienceSection from "../components/ExperienceSection";
 import ProjectsSection from "../components/ProjectsSection";
 import GraphicDesignsSection from "../components/GraphicDesignsSection";
+import ChatSection from "../components/ChatSection";
 
 const HomePage: React.FC = () => {
     return (
@@ -20,15 +22,21 @@ const HomePage: React.FC = () => {
                 {/* 2nd Section - About */}
                 <AboutSection />
 
-                {/* 3rd Section - Dynamic Projects */}
+                {/* 3rd Section - Work Experience */}
+                <ExperienceSection />
+
+                {/* 4th Section - Dynamic Projects */}
                 <ProjectsSection />
 
-                {/* 4th Section - Graphic Designs */}
+                {/* 5th Section - Graphic Designs */}
                 <GraphicDesignsSection />
             </main>
 
             {/* Footer */}
             <Footer />
+
+            {/* Floating Chat Widget — fixed bottom-right, above everything */}
+            <ChatSection />
         </div>
     );
 };
