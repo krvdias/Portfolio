@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Users, BookOpen } from 'lucide-react';
 import { my } from '../assets/images/index';
 import AdminPhotoUpload from './AdminPhotoUpload';
+import { usePortfolioData } from '../contexts/PortfolioDataContext';
 
 interface GithubStats {
   public_repos: number;
@@ -11,6 +12,7 @@ interface GithubStats {
 }
 
 const HeroSection: React.FC = () => {
+  const { data } = usePortfolioData();
   const [stats, setStats] = useState<GithubStats | null>(null);
   // Starts with the R2 URL from the image index; admin can override with a cache-busted version
   const [photoUrl, setPhotoUrl] = useState<string>(my);
@@ -33,23 +35,24 @@ const HeroSection: React.FC = () => {
         className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left z-10"
       >
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-white leading-none tracking-tighter mb-2">
-          VISHAN
+          {data.hero.firstName}
         </h1>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 mb-6">
-          DIAS
+          {data.hero.lastName}
         </h1>
         
         <div className="flex flex-col gap-2 mb-8 text-lg md:text-2xl font-medium text-gray-600 dark:text-gray-300">
-          <p>Associate Software Engineer</p>
-          <p>Graphic Designer</p>
+          {data.hero.roles.map((role, i) => (
+             <p key={i}>{role}</p>
+          ))}
         </div>
 
         {/* Social Links */}
         <div className="flex gap-4 mb-12">
-          <a href="https://github.com/krvdias" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-900 dark:text-white">
+          <a href={data.hero.githubUrl} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-gray-900 dark:text-white">
             <Github className="w-6 h-6" />
           </a>
-          <a href="https://linkedin.com/in/vishan-dias-2b4b92213" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors text-blue-700 dark:text-blue-400">
+          <a href={data.hero.linkedinUrl} target="_blank" rel="noreferrer" className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/30 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors text-blue-700 dark:text-blue-400">
             <Linkedin className="w-6 h-6" />
           </a>
         </div>

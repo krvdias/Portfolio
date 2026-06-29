@@ -1,23 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { logo1, logo2, logo3, logo4, post1, post2, post3, post4, post5, post6, post7, post8, post9 } from '../assets/images/posts/index';
+import { usePortfolioData } from '../contexts/PortfolioDataContext';
 
 const GraphicDesignsSection: React.FC = () => {
-  const designs = [
-    { id: 1, src: post1, alt: "Design 1" },
-    { id: 2, src: post2, alt: "Design 2" },
-    { id: 3, src: logo1, alt: "Logo 1" },
-    { id: 4, src: post3, alt: "Design 3" },
-    { id: 5, src: logo2, alt: "Logo 2" },
-    { id: 6, src: post4, alt: "Design 4" },
-    { id: 7, src: post5, alt: "Design 5" },
-    { id: 8, src: logo3, alt: "Logo 3" },
-    { id: 9, src: post6, alt: "Design 6" },
-    { id: 10, src: post7, alt: "Design 7" },
-    { id: 11, src: logo4, alt: "Logo 4" },
-    { id: 12, src: post8, alt: "Design 8" },
-    { id: 13, src: post9, alt: "Design 9" },
-  ];
+  const { data } = usePortfolioData();
+  const designs = data.graphicDesigns;
 
   return (
     <section className="py-20 px-4 md:px-10 bg-gray-50 dark:bg-black/50 border-t border-gray-200 dark:border-gray-800">
@@ -53,7 +40,7 @@ const GraphicDesignsSection: React.FC = () => {
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white font-medium text-lg px-4 py-2 bg-black/50 rounded-lg backdrop-blur-sm">
-                  View Design
+                  {design.alt}
                 </span>
               </div>
             </motion.div>

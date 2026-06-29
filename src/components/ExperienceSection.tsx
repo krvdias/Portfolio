@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
+import { usePortfolioData } from '../contexts/PortfolioDataContext';
 
 interface Experience {
   role: string;
@@ -11,46 +12,7 @@ interface Experience {
   tags: string[];
 }
 
-const experiences: Experience[] = [
-  {
-    role: 'Associate Software Engineer',
-    company: 'CygnusOne (Pvt) Ltd',
-    period: '2026 March – Present',
-    type: 'full-time',
-    highlights: [
-      'Developing and customising Odoo ERP modules as an Odoo developer.',
-      'Working across 5–6 live client projects simultaneously.',
-      'Building frontend components with OWL.js within the Odoo framework.',
-    ],
-    tags: ['Odoo', 'Python', 'XML', 'PostgreSQL', 'OWL.js'],
-  },
-  {
-    role: 'Software Engineer Intern',
-    company: 'CygnusOne (Pvt) Ltd',
-    period: '2025 October – 2026 February',
-    type: 'intern',
-    highlights: [
-      'Worked as an Odoo developer on 2–3 projects.',
-      'Learned XML and Python-based Odoo addon creation.',
-      'Gained hands-on experience with ERP module customisation.',
-    ],
-    tags: ['Odoo', 'Python', 'XML', 'PostgreSQL'],
-  },
-  {
-    role: 'Software Engineer Intern',
-    company: 'K D Enterprises (Pvt) Ltd',
-    period: '2025 January – 2025 July',
-    type: 'intern',
-    highlights: [
-      'Worked as a full-stack developer across 5 production sites.',
-      'Integrated PayHere payment gateway and Cloudflare R2 / AWS S3 storage.',
-      'Researched and implemented Google Meet generation via Google Calendar APIs.',
-      'Built WhatsApp chatbots using WhatsAppWeb.js.',
-      'Gained experience with RabbitMQ for message queuing.',
-    ],
-    tags: ['React', 'TypeScript', 'Next.js', 'Node.js', 'MySQL'],
-  },
-];
+
 
 const typeBadge: Record<Experience['type'], { label: string; className: string }> = {
   'full-time': {
@@ -64,6 +26,9 @@ const typeBadge: Record<Experience['type'], { label: string; className: string }
 };
 
 const ExperienceSection: React.FC = () => {
+  const { data } = usePortfolioData();
+  const experiences = data.experience;
+  
   return (
     <section id="experience" className="py-20 px-4 md:px-10 bg-white dark:bg-black">
       <div className="max-w-5xl mx-auto">

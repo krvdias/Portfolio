@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Code2, ExternalLink } from 'lucide-react';
+import { usePortfolioData } from '../contexts/PortfolioDataContext';
 
 interface Repo {
   id: number;
@@ -12,34 +13,43 @@ interface Repo {
 }
 
 const ProjectsSection: React.FC = () => {
+  const { data } = usePortfolioData();
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://api.github.com/users/krvdias/repos?sort=updated&per_page=10')
       .then(res => res.json())
-      .then((data: Repo[]) => {
-        // Filter out repos without descriptions or forks, then take the top 5
-        const validRepos = data.filter(r => r.description).slice(0, 5);
+      .then((githubData: Repo[]) => {
+        const validRepos = githubData.filter(r => r.description).slice(0, 5);
         
-        // Add the private Tithr project manually
-        const tithrProject: Repo = {
-          id: 9999999,
-          name: "Tithr Church Management System",
-          description: "A comprehensive church management application featuring member tracking, donations, and event scheduling. Built as a private proprietary system.",
-          html_url: "https://linkedin.com/in/vishan-dias-2b4b92213",
-          language: "Flutter",
+        // Map CMS projects to Repo format (use language field if set)
+        const cmsRepos: Repo[] = data.projects.map((p, i) => ({
+          id: 999000 + i,
+          name: p.title,
+          description: p.description,
+          html_url: p.link,
+          language: p.language || null,
           stargazers_count: 0
-        };
+        }));
 
-        setRepos([tithrProject, ...validRepos]);
+        setRepos([...cmsRepos, ...validRepos]);
         setLoading(false);
       })
       .catch(err => {
         console.error('Failed to fetch repos', err);
+        const cmsRepos: Repo[] = data.projects.map((p, i) => ({
+          id: 999000 + i,
+          name: p.title,
+          description: p.description,
+          html_url: p.link,
+          language: p.language || null,
+          stargazers_count: 0
+        }));
+        setRepos(cmsRepos);
         setLoading(false);
       });
-  }, []);
+  }, [data.projects]);
 
   return (
     <section className="py-20 px-4 md:px-10 max-w-7xl mx-auto">

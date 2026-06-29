@@ -6,5 +6,10 @@ compatibility_date = "2024-05-12"
 binding = "R2_BUCKET"
 bucket_name = "portfolio"
 
+[[kv_namespaces]]
+binding = "PORTFOLIO_KV"
+id = "0855ad65307841b0866fba907f1b60de"
+
 [vars]
 ADMIN_KEY = "v!sh@n-p0rtf0l10-2026"
+R2_PUBLIC_URL = "https://pub-91517a4c31df4230b4aaeaa2240eb4e6.r2.dev"

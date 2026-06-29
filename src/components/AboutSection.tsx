@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Database, Layout, Server, Palette, GitBranch } from 'lucide-react';
+import { usePortfolioData } from '../contexts/PortfolioDataContext';
 
 const skills = [
   { icon: <Layout className="w-6 h-6" />, title: "Frontend", desc: "HTML, CSS, JavaScript, React, Next.js, TypeScript" },
@@ -12,6 +13,8 @@ const skills = [
 ];
 
 const AboutSection: React.FC = () => {
+  const { data } = usePortfolioData();
+  
   return (
     <section className="py-20 px-4 md:px-10 bg-gray-50 dark:bg-black/50 border-y border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto">
@@ -24,9 +27,7 @@ const AboutSection: React.FC = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">About Me.</h2>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Associate Software Engineer at CygnusOne, specialising in Odoo ERP development using Python, XML, and PostgreSQL.
-            Previously worked as a full-stack developer with React, Next.js, TypeScript, and Node.js.
-            Final-year BSc IT undergraduate at BCI Campus, graduating August 2026.
+            {data.about.description}
           </p>
         </motion.div>
 
